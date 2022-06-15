@@ -1,43 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./Assets/apexcharts.min.js"></script>
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+</head>
+<body>
+  <div id="color"></div>
+  <div id="header">
+    <button class="filter" type="button"><span class="textoFilter">Filtrar</span></button>
+    <h2 class="titulo">Dashboard</h2>
+    <h5 class="subTitulo">Desafio Técnio Frontend</h5>
+  </div>  
+  <div id="container">
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+    <div id="grafico"></div>
+    <div id="grafico2"></div>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+    <script>
+      let elemento = document.getElementById('grafico');
+      let options = {
+        chart: {
+          width: 500,
+          height: 350,
+          type: 'bar'
+        },
+        title: {
+          text: 'Barras',
+          align: 'left',
+          margin: 10,
+          offsetX: 0,
+          offsetY: 0,
+          floating: false,
+          style: {
+            position: 'absolute',
+            width: 55,
+            height: 20,
+            left: 51,
+            top: 249,
+            fontFamily: 'Montserrat',
+            fontStyle: 'normal',
+            fontWeight: 700,
+            fontSize: 16,
+            lineHeight: 20,
+            color:  '#5D405C'
+          }
+        },
+        series: [
+          {
+            name: 'teste grafico',
+            data: [20,60,40,35,400, 430, 448, 470, 540, 580]
+          }
+        ],
+        plotOptions: {
+          bar: {
+            borderRadius: 4,
+            horizontal: true,
+          }
+        },
+        dataLabels: {
+          enabled: false
+        },
+        xaxis: {
+          categories: ['South Korea', 'Canada', 'United Kingdom', 'Netherlands', 'Italy', 'France', 'Japan',
+            'United States', 'China', 'Germany'
+          ],
+        }
+      };
+  
+      let teste = new ApexCharts(elemento, options);
+      teste.render();
+  
+      let elemento2 = document.getElementById('grafico2');
+      let options2 = {
+        chart: {
+          width: 500,
+          height: 350,
+          type: 'scatter',
+          zoom: {
+            enabled: true,
+            type: 'xy'
+          }
+        },
+        title: {
+          text: 'Scatter',
+          align: 'left',
+          margin: 10,
+          offsetX: 0,
+          offsetY: 0,
+          floating: false,
+          style: {
+            position: 'absolute',
+            width: 55,
+            height: 20,
+            left: 51,
+            top: 249,
+            fontFamily: 'Montserrat',
+            fontStyle: 'normal',
+            fontWeight: 700,
+            fontSize: 16,
+            lineHeight: 20,
+            color:  '#5D405C'
+          }
+        },
+        series: [
+          {
+            name: "Teste Disperção A",
+                data: [
+                [16.4, 5.4], [21.7, 2], [25.4, 3], [19, 2], [10.9, 1], [13.6, 3.2], [10.9, 7.4], [10.9, 0], [10.9, 8.2], [16.4, 0], [16.4, 1.8], [13.6, 0.3], [13.6, 0], [29.9, 0], [27.1, 2.3], [16.4, 0], [13.6, 3.7], [10.9, 5.2], [16.4, 6.5], [10.9, 0], [24.5, 7.1], [10.9, 0], [8.1, 4.7], [19, 0], [21.7, 1.8], [27.1, 0], [24.5, 0], [27.1, 0], [29.9, 1.5], [27.1, 0.8], [22.1, 2]]
+          },
+          {
+            name: "Teste Disperção B",
+            data: [
+            [36.4, 13.4], [1.7, 11], [5.4, 8], [9, 17], [1.9, 4], [3.6, 12.2], [1.9, 14.4], [1.9, 9], [1.9, 13.2], [1.4, 7], [6.4, 8.8], [3.6, 4.3], [1.6, 10], [9.9, 2], [7.1, 15], [1.4, 0], [3.6, 13.7], [1.9, 15.2], [6.4, 16.5], [0.9, 10], [4.5, 17.1], [10.9, 10], [0.1, 14.7], [9, 10], [12.7, 11.8], [2.1, 10], [2.5, 10], [27.1, 10], [2.9, 11.5], [7.1, 10.8], [2.1, 12]]
+          },
+        ],
+        dataLabels: {
+          enabled: false
+        },
+        xaxis: {
+          tickAmount: 10,
+          labels: {
+            formatter: function(val) {
+              return parseFloat(val).toFixed(1)
+            }
+          }
+        },
+        yaxis: {
+          tickAmount: 7
+        }
+      };
+  
+      let chart2 = new ApexCharts(elemento2, options2);
+      chart2.render();
+    </script>
+  </div>
+  
+</body>
 </html>

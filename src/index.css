@@ -11,3 +11,71 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#container{
+  display: flex;
+  position: relative;
+  margin-top: 25%;
+}
+
+#color
+{
+  position: absolute;
+  width: 1440px;
+  height: 91px;
+  left: 0px;
+  top: 0px;
+  background: #CEC6CE;  
+}
+
+.filter{
+  position: absolute;
+  width: 100px;
+  height: 40px;
+  left: 90%;
+  top: 25%;
+  background: #5D405C;
+  border-radius: 10px;
+}
+
+.textoFilter{
+  width: 44px;
+  height: 17px;
+  left: 1360px;
+  top: 147px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: #F7F7F7;
+}
+
+.titulo
+{
+  width: 161px;
+  height: 34px;
+  left: 28px;
+  top: 124px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 34px;
+  color: #5D405C;
+  position: absolute;
+}
+
+.subTitulo{
+  position: absolute;
+  width: 183px;
+  height: 17px;
+  left: 28px;
+  top: 166px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #828282;
+}
